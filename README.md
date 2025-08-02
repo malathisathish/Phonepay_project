@@ -32,10 +32,10 @@ Helps isolate your project dependencies:
 bash
 # Create virtual environment
 python -m venv venv
-# Activate it
-# For Windows:
+Activate it
+For Windows:
 venv\Scripts\activate
-# For macOS/Linux:
+For macOS/Linux:
 source venv/bin/activate
 
 3️⃣ Install Required Dependencies
