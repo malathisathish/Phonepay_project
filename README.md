@@ -15,52 +15,56 @@ It connects to a PostgreSQL database, uses SQLAlchemy for data querying, and off
 ``
 ## 🎯 Objectives
 ♦To analyze transaction behavior across states, districts, and pincodes.
+
 ♦To monitor user engagement using app opens, registrations, and device brand data.
+
 ♦To discover high-performing regions and under-utilized markets.
+
 ♦To visualize actionable insights using a dynamic and user-friendly dashboard.
+
 ♦To support PhonePe's strategic decisions in marketing, expansion, and product optimization
 `` 
-## ▶️ How to Run the PhonePe Transaction Insight Dashboard
-1️⃣ Clone the Repository
+### ▶️ How to Run the PhonePe Transaction Insight Dashboard
+### 1️⃣ Clone the Repository
 Download the project to your local system:
 bash
 git clone https://github.com/yourusername/phonepe-pulse-project.git
 cd phonepe-pulse-project
 
-2️⃣ (Optional) Create a Virtual Environment
+### 2️⃣ (Optional) Create a Virtual Environment
 Helps isolate your project dependencies:
 bash
-# Create virtual environment
+### Create virtual environment
 python -m venv venv
 Activate it
-For Windows:
+### For Windows:
 venv\Scripts\activate
-For macOS/Linux:
+### For macOS/Linux:
 source venv/bin/activate
 
-3️⃣ Install Required Dependencies
+### 3️⃣ Install Required Dependencies
 Install all necessary libraries listed in requirements.txt:
 bash
 pip install -r requirements.txt
 
-4️⃣ Set Up PostgreSQL Database
+### 4️⃣ Set Up PostgreSQL Database
 Ensure PostgreSQL is installed, running, and a database named phonepedb is created.
 You can load your data in two ways:
 
-✅ Option A: Load via SQL Scripts
+### ✅ Option A: Load via SQL Scripts
 bash
 psql -U postgres -d phonepedb -f scripts/create_tables.sql
 psql -U postgres -d phonepedb -f scripts/load_data.sql
 
-✅ Option B: Load Using Python + Pandas
+### ✅ Option B: Load Using Python + Pandas
 If you're working with JSON files locally, your dashboard code will automatically load the data into tables using pandas.
 
-5️⃣ Database Connection
+### 5️⃣ Database Connection
 Your code uses SQLAlchemy to connect to the database like this:
 engine = create_engine("postgresql://postgres:MALATHI28@localhost:5432/phonepedb")
 ✅ Note: You can optionally manage your credentials using a .env file for better security.
 
-6️⃣ Launch the Streamlit Dashboard
+### 6️⃣ Launch the Streamlit Dashboard
 Run the app using:
 bash
 streamlit run streamlit_app/dashboard.py
@@ -88,6 +92,7 @@ The project uses a cleaned and structured version of PhonePe’s pulse data acro
 10. `map_ins1_table` – Insurance map hover-level data (optional visual enhancement).
 ``
 ## 📁 Folder Structure
+```text
 📦phonepe-pulse-project
  ┣ 📁data
  ┃ ┣ 📁aggregated
@@ -97,14 +102,15 @@ The project uses a cleaned and structured version of PhonePe’s pulse data acro
  ┃ ┣ 📁map
  ┃ ┣ 📁top
  ┃ ┗ 📄 raw_jsons
- ┣ phonepe_project.ipynb(data extraction,data preprocessing,data pushed into sql)
- 📁streamlit_app
- ┃ ┗ 📄app.py(Streamlit dashboard with full logic and visuals)
- ┣ 📄 db_connection.py(or postgres export)
- ┣ 📄 insights_queries.sql(All sql queries)
- ┣ 📄 requirements.txt(Python pakage dependencies)
- ┣ 📄 README.md(Project documentation)
-``
+ ┣ 📄 phonepe_project.ipynb (data extraction, data preprocessing, data pushed into SQL)
+ ┣ 📁streamlit_app
+ ┃ ┗ 📄 app.py (Streamlit dashboard with full logic and visuals)
+ ┣ 📄 db_connection.py (Postgres export logic)
+ ┣ 📄 insights_queries.sql (All SQL queries)
+ ┣ 📄 requirements.txt (Python package dependencies)
+ ┣ 📄 README.md (Project documentation)
+```
+
 ## 📊 Analysis Scenarios & Key Insights
 Scenario-wise Key Insights:
 
@@ -119,9 +125,12 @@ Scenario-wise Key Insights:
 ♥Device Analytics: Explored brand-wise device usage trends, helping optimize the app experience and ensure better device compatibility.
 
 ## 🔍 Sample Insights
-🇮🇳 Maharashtra and Karnataka are the most active transaction states
+📍🇮🇳 Maharashtra and Karnataka are the most active transaction states
+
 📱 Users on Xiaomi and Samsung devices show higher app open rates
+
 🌟 Top-performing districts: Bangalore Urban, Pune, Hyderabad
+
 ⛨️ Insurance adoption is still <30% in northern and north-eastern states
 
  ## 💡 Example Queries Used
@@ -152,17 +161,20 @@ ORDER BY Total_Insurance_Count ASC;
 ## 📚 Full project analytical report tab:
 
 🧩 Problem Statement
+
 🔍 Exploratory Data Analysis (EDA)
+
 🛠️ Identified Issues
+
 🎯 Proposed Solutions
 
 ## 📊 Analytical Report Summary
 
-## 🔍 Problem Statement
+### 🔍 Problem Statement
 
 Digital payments adoption is uneven across India with disparities in user registrations, transaction volume, device usage, and insurance penetration.
 
-## 📊 Exploratory Data Analysis (EDA)
+### 📊 Exploratory Data Analysis (EDA)
 🧑‍🤝‍🧑📱 Correlation Between Population Density and App Opens
 Analyzed how user density in various districts influences the number of app opens, highlighting the role of regional engagement and accessibility.
 
@@ -175,7 +187,7 @@ Explored how different smartphone brands impact user interaction levels, reveali
 🗺️🔥 Insurance Usage Heatmaps by District
 Visualized insurance activity intensity across districts to identify awareness and adoption gaps geographically, especially in low-performing regions.
 ``
-## ❗ Key Problems Identified
+### ❗ Key Problems Identified
 📉🏞️ Low User Registrations in Rural Pin Codes
 📌 Issue: Poor digital access, awareness, and onboarding in rural regions.
 📡 Cause: Limited internet access, low smartphone usage, and digital illiteracy.
@@ -192,7 +204,7 @@ Visualized insurance activity intensity across districts to identify awareness a
 🖥️ Issue: High transaction volumes causing server slowdowns and failures.
 📍 Cause: Infrastructure concentrated in metro areas; rural clusters under-supported.
 ``
-## 💡 Proposed Solutions
+### 💡 Proposed Solutions
 🧾🏕️ Rural Outreach Through Incentives
 🎁 Solution: Offer region-specific bonuses, referrals, and scratch card rewards.
 🗣️ Tactic: Community outreach via local influencers and multilingual support.
@@ -212,10 +224,15 @@ Visualized insurance activity intensity across districts to identify awareness a
 ## ✨ Features
 
 🌐 Interactive 2D Choropleth Map using PyDeck
+
 📊 Plotly visualizations (Bar, Pie, Line)
+
 🔍 Filters by State, Year, Quarter
+
 🔹 Drill-down to districts and pincode-level insights
+
 👥 Device brand usage and engagement breakdown
+
 🛡️ Insurance penetration analytics
 ``
 ## 📌 Key Takeaways 
@@ -254,16 +271,24 @@ Some smaller districts outperform metro areas in engagement per capita — sugge
 
 ## 🔮 Future Enhancements
 🗺️ Add real-time interactive geographic map plots.  
+
 ☁️ Migrate backend to AWS RDS or Snowflake for scalability.  
+
 📉 Introduce predictive models to forecast user growth.  
+
 🧠 Add ML-based anomaly detection on transaction patterns.  
+
 🧾 Auto-generate PDF/Excel reports for business teams.  
 
 ## 🙏 Acknowledgments
 📡 PhonePe Pulse – for open access data.  
+
 🧮 PostgreSQL – for efficient relational storage and querying.  
+
 📊 Streamlit – for elegant and interactive dashboards.  
+
 🐍 Python & Pandas – for powerful data processing.
+
 🧑‍🏫 GUVI Data Science Program Mentors 
 
 ## ✅ Conclusion
@@ -286,7 +311,9 @@ Data Science Enthusiast | Former Staff Nurse turned Aspiring Data Analyst
 We’d love to hear from you!
 
 📧 Email: malathisathish2228@gmail.com
+
 🔗 LinkedIn: linkedin.com/in/malathi-sathish-016a03354
+
 💻 GitHub: github.com/malathisathish
 
 💡 “Transforming clinical experience into data-driven insights — where empathy meets analytics.”
