@@ -1234,7 +1234,7 @@ def About_Developer():
 
     📚 My Present Mission:
     - 🔄 Career Shift to **Data Science / Analytics**
-    - 🎯 Currently enrolled at **GUVI** for Python, SQL, Machine Learning, and Dashboarding
+    - 🎯 Currently enrolled at **GUVI** to study Datascience course 
     - 🧠 Learning tools like Pandas, PostgreSQL, Streamlit, Seaborn, and Plotly
 
     ---
@@ -1297,4 +1297,5 @@ st.markdown("""
     <div style="text-align: center; color: grey;">
         📱 Phonepe Transaction Insight Dashboard Created With ❤️ By Using Python,Postgresql,Streamlit 
     </div
+
     """, unsafe_allow_html=True)
