@@ -104,7 +104,7 @@ The project uses a cleaned and structured version of PhonePe’s pulse data acro
  ┃ ┗ 📄 raw_jsons
  ┣ 📄 phonepe_project.ipynb (data extraction, data preprocessing, data pushed into SQL)
  ┣ 📁streamlit_app
- ┃ ┗ 📄 app.py (Streamlit dashboard with full logic and visuals)
+ ┃ ┗ 📄 phonepe.py (Streamlit dashboard with full logic and visuals)
  ┣ 📄 db_connection.py (Postgres export logic)
  ┣ 📄 insights_queries.sql (All SQL queries)
  ┣ 📄 requirements.txt (Python package dependencies)
