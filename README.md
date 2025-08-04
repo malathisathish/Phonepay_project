@@ -11,7 +11,7 @@ With the digital payments space booming in India, PhonePe Pulse offers a treasur
 
 It connects to a PostgreSQL database, uses SQLAlchemy for data querying, and offers visually rich analytics via Streamlit and Plotly.
 
-📹Watch demo video live:PhonePe Transaction insight Dashboard | The Beat of Progress
+📹Watch demo video live: http://localhost:8501/
 ``
 ## 🎯 Objectives
 ♦To analyze transaction behavior across states, districts, and pincodes.
