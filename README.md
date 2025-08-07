@@ -20,13 +20,13 @@ With the increasing reliance on digital payment systems like PhonePe, understand
 
 ## 📌 1. Transaction Dynamics
 
-Definition:
+**Definition**:
 Transaction dynamics refer to the changing behaviors, trends, and patterns in financial transactions over time.
 
-Who is transacting? Users across different age groups, using different devices, from different regions
+**Who is transacting?** Users across different age groups, using different devices, from different regions
 Example: A 25-year-old in Delhi using Android for UPI transfers vs a senior citizen in Kerala using PhonePe for utility bills
 
-What are they transacting for? Recharge, bills, shopping, travel
+**What are they transacting for?** Recharge, bills, shopping, travel
 Example: A user pays for a Swiggy order or recharges their mobile through PhonePe
 
 Where are they transacting? Urban vs rural areas, state-wise analysis
