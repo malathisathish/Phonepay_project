@@ -9,8 +9,8 @@ In my perspective, clearly understanding the problem statement is the most criti
 
 Interestingly, there’s often a hidden logic within problems — the solution usually lies within the problem itself. With that in mind, I have chosen to present the problem statement in two structured sections:
 
- ### The Problem – Highlighting the real-world challenges and gaps
- ### The Aim (as the Solution) – Defining how we intend to solve these challenges through data analysis and visualization
+ ### ⚠️ The Problem – Highlighting the real-world challenges and gaps
+ ### 🎯💡The Aim (as the Solution) – Defining how we intend to solve these challenges through data analysis and visualization
 
 This approach offers a clear and focused understanding of the problem's nature and the strategic direction of the solution. It will greatly enhance how you explore and interpret the dashboard's purpose and insights.
 
