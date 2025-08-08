@@ -498,6 +498,7 @@ Some smaller districts outperform metro areas in engagement per capita — sugge
 🐍 Python & Pandas – for powerful data processing.
 
 🧑‍🏫 GUVI Data Science Program Mentors 
+(Especially My Mentors Mr.Santhosh Nagaraj sir,Ms.Shadiya mam ,For their guidance throughout this project and providing me the confidence to make this project)
 
 ## ✅ Conclusion
 This project bridges the gap between raw JSON data and strategic insights through structured SQL queries, engaging dashboards, and effective storytelling. It allows businesses, analysts, and policymakers to explore the digital economy across India and identify impactful opportunities for growth, engagement, and financial inclusion.
