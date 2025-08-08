@@ -381,36 +381,52 @@ Visualized insurance activity intensity across districts to identify awareness a
 ``
 ### ❗ Key Problems Identified
 📉🏞️ Low User Registrations in Rural Pin Codes
+
 📌 Issue: Poor digital access, awareness, and onboarding in rural regions.
+
 📡 Cause: Limited internet access, low smartphone usage, and digital illiteracy.
 
 🧠❌ Insurance Awareness Lacking in Northern Regions
+
 🗺️ Issue: Minimal digital insurance transactions in northern states.
+
 🧾 Cause: Lack of awareness, trust, and financial literacy regarding digital insurance.
 
 📱⚖️ Disparity in Engagement Based on Device Brand
+
 📊 Issue: Uneven engagement patterns across phone brands.
+
 📉 Cause: Budget phones struggle with app performance and feature access.
 
 🌐⚠️💥 Uneven Infrastructure Distribution Causing Transaction Overload
+
 🖥️ Issue: High transaction volumes causing server slowdowns and failures.
+
 📍 Cause: Infrastructure concentrated in metro areas; rural clusters under-supported.
 ``
 ### 💡 Proposed Solutions
 🧾🏕️ Rural Outreach Through Incentives
+
 🎁 Solution: Offer region-specific bonuses, referrals, and scratch card rewards.
+
 🗣️ Tactic: Community outreach via local influencers and multilingual support.
 
 🗺️📣 Localized Awareness Campaigns for Insurance
+
 📢 Solution: Run insurance awareness programs via vernacular media and street campaigns.
+
 📺 Tactic: Use short videos, banners, and local events to build understanding and trust.
 
 ⚙️📱 App Optimization for Low-Performance Brands
+
 📦 Solution: Create a lightweight version of the app for low-end phones.
+
 🔧 Tactic: Reduce app size, improve battery usage, and test on budget devices.
 
 🧭🔌 Infrastructure Scaling in High-Load Districts
+
 🚀 Solution: Upgrade cloud/server capacity and introduce load balancing.
+
 🧠 Tactic: Predict traffic spikes using ML models and dynamically scale infrastructure.
 ``
 ## ✨ Features
