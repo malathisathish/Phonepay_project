@@ -217,11 +217,7 @@ It connects to a PostgreSQL database, uses SQLAlchemy for data querying, and off
 ♦To support PhonePe's strategic decisions in marketing, expansion, and product optimization
 `` 
 ### ▶️ How to Run the PhonePe Transaction Insight Dashboard
-### 1️⃣ Clone the Repository
-Download the project to your local system:
-bash
-git clone https://github.com/yourusername/phonepe-pulse-project.git
-cd phonepe-pulse-project
+
 
 ### 2️⃣ (Optional) Create a Virtual Environment
 Helps isolate your project dependencies:
@@ -262,59 +258,142 @@ bash
 streamlit run streamlit_app/dashboard.py
 🌐 Open your browser and go to: http://localhost:8501
 ``
-## 🗂️ Dataset Details
-The project uses a cleaned and structured version of PhonePe’s pulse data across three major categories:
 
-### Aggregated Tables
-1. `agg_trans_table` – Transaction data aggregated by state, year, quarter, transaction type.
-2. `agg_user_table` – User device brand share data by state, year, quarter.
-3. `agg_ins_table` – Insurance-related transactions aggregated by state, year, quarter.
-
-### Map Tables
-4. `map_trans_table` – District-level transaction amount and count data.
-5. `map_user_table` – District-level registered users and app opens.
-6. `map_ins_table` – District-level insurance transaction performance.
-
-### Top Tables
-7. `top_trans_table` – Top 10 pincodes for transactions.
-8. `top_user_table` – Top pincodes by user registrations.
-9. `top_ins_table` – Top pincodes in insurance activity.
-
-### Hover Table
-10. `map_ins1_table` – Insurance map hover-level data (optional visual enhancement).
 ``
-## 📁 Folder Structure
-```text
-📦phonepe-pulse-project
- ┣ 📁data
- ┃ ┣ 📁aggregated
- ┃ ┃ ┣ 📁transaction
- ┃ ┃ ┣ 📁user
- ┃ ┃ ┗ 📁insurance
- ┃ ┣ 📁map
- ┃ ┣ 📁top
- ┃ ┗ 📄 raw_jsons
- ┣ 📄 phonepe_project.ipynb (data extraction, data preprocessing, data pushed into SQL)
- ┣ 📁streamlit_app
- ┃ ┗ 📄 phonepe.py (Streamlit dashboard with full logic and visuals)
- ┣ 📄 db_connection.py (Postgres export logic)
- ┣ 📄 insights_queries.sql (All SQL queries)
- ┣ 📄 requirements.txt (Python package dependencies)
- ┣ 📄 README.md (Project documentation)
-```
+## 📂 Project Structure – Luxury Housing Sales Analysis
+Luxury_Housing_Sales_Analysis/
+│
+├── data/  
+│   ├── uncleaned_data.csv         # Raw housing dataset (before preprocessing)  
+│   ├── cleaned_data.csv           # Processed dataset after cleaning  
+│
+├── main_files/  
+│   ├── cleaning.py                # Data cleaning scripts (handle NaN, outliers, duplicates)  
+│   ├── dataloader.py              # Load data from CSV into pandas or SQL DB  
+│   ├── dboperation.py             # Database connection and CRUD operations  
+│   ├── eda.py                     # Exploratory Data Analysis (univariate, bivariate, multivariate)  
+│   ├── feature_engineering.py     # Feature creation, encoding, scaling  
+│   ├── main.py                    # Main execution file to run complete pipeline  
+│   ├── utils.py                   # Utility/helper functions (logging, configs, etc.)  
+│
+├── notebooks/  
+│   └── luxury_housing_sales.ipynb # Jupyter notebook for step-by-step analysis and visualization  
+│
+├── power_bi/  
+│   ├── dax_measures.pbix          # Power BI DAX calculations file  
+│   ├── report.pbix                # Final Power BI dashboard/report file  
+│
+├── sql/  
+│   ├── create_schema.py           # SQLAlchemy / SQL script to create project schema  
+│
+├── assets/  
+│   ├── dashboard_page1.png        # Screenshot of dashboard (page 1)  
+│   ├── dashboard_page2.png        # Screenshot of dashboard (page 2)  
+│   ├── insights_summary.png       # Screenshot of summary insights  
+│
+├── README.md                      # Project documentation (problem, solution, structure, usage)  
+├── requirements.txt               # Python dependencies (pandas, numpy, matplotlib, SQLAlchemy, etc.)  
 
-## 📊 Analysis Scenarios & Key Insights
-Scenario-wise Key Insights:
+## LUXURY HOUSING MARKET INSIGHTS – BENGALURU
+Executive Summary | Based on 100,000+ Sales Records
 
-♥Transaction Trends: Analyzed top-performing states and districts based on transaction volume and value, including quarter-wise growth trends.
+📊 1. Market Trends
+Line Chart: Bookings by Quarter & Micro-Market
 
-♥Underperforming Regions: Identified states with high transaction counts but low transaction amounts, highlighting regions with low-ticket size usage.
+🔍 Key Insights:
+Whitefield leads in bookings with over 1,200 bookings in Q3 2024 — the highest among all micro-markets.
+Sarjapur Road shows steady growth — bookings increased from ~380 in Q1 2023 to ~520 in Q3 2024, indicating rising demand.
+Indiranagar has seasonal spikes — peak in Q4 2023 (~480 bookings), likely due to year-end property launches.
+💡 Whitefield and Sarjapur Road are the most dynamic markets for luxury housing. 
 
-♥Geographic Expansion: Discovered regions with increasing user engagement but relatively low market penetration, indicating potential areas for expansion.
+📊 2. Builder Performance
+Bar Chart: Revenue vs. Avg Ticket Size by Builder
 
-♥User Engagement: Examined the gap between registered users and app opens to understand user retention, engagement, and activity levels.
+🔍 Key Insights:
+Total Environment leads in total revenue with ₹1.89 Cr from 1,200+ sales — highest in the dataset.
+Prestige has the highest average ticket price at ₹14.9 Cr (e.g., PROP004042, PROP090609), indicating premium positioning.
+Brigade has high volume but lower average price (₹12.2 Cr) — focuses on volume over premium pricing.
+💡 Total Environment dominates volume; Prestige leads in premium pricing. 
 
-♥Device Analytics: Explored brand-wise device usage trends, helping optimize the app experience and ensure better device compatibility.
+📊 3. Amenity Impact
+Scatter Plot: Amenity Score vs. Booking Conversion Rate
+
+🔍 Key Insights:
+Projects with Amenity Score >8.0 (e.g., PROP090609: 8.54) have 72–78% booking conversion — 2.3x higher than low-amenity projects.
+Low-amenity projects (Score <6.0) like PROP001033 (5.82) have <30% conversion — poor amenities hurt sales.
+PROP036652 (Bellary Road) has Amenity Score of 6.79 and 100% booking rate — outlier due to "Connectivity is poor" (low competition?).
+💡 High amenity score = high conversion. Developers should invest in gyms, pools, and security. 
+
+📊 4. Booking Conversion
+Stacked Column: % Booking Status by Micro-Market
+
+🔍 Key Insights:
+Whitefield has 72% booking rate — highest in Bengaluru (e.g., PROP071376, PROP034916)
+Domlur has only 48% booking rate — despite high inquiries, conversion is low (e.g., PROP029742)
+Hennur Road shows 68% conversion — strong interest but needs better follow-up to close more deals.
+💡 Whitefield converts best; Domlur needs better sales execution. 
+
+📊 5. Configuration Demand
+Donut Chart: Most In-Demand Housing Configurations
+
+🔍 Key Insights:
+5BHK+ units account for 38% of all bookings — most in-demand configuration (e.g., PROP032301, PROP001060)
+3BHK units make up 32% — popular among NRI and HNI buyers (e.g., PROP053700, PROP076808)
+4BHK units at 30% — slightly less popular, but still strong demand in Sarjapur Road and Hebbal.
+💡 Buyers prefer larger homes — developers should launch more 5BHK+ units. 
+
+📊 6. Sales Channel Efficiency
+100% Stacked Column: Sales Channel vs. Booking Status
+
+🔍 Key Insights:
+NRI Desk has 72% booking conversion — highest of all channels (e.g., PROP053700, PROP034916)
+Broker channel converts at only 54% — high inquiries but poor follow-up (e.g., PROP001085)
+Online channel has 63% conversion — effective for tech-savvy buyers (e.g., PROP034917, PROP079158)
+💡 NRI Desk is the most efficient — recommend scaling this channel. 
+
+📊 7. Quarterly Builder Contribution
+Matrix: Builders by Quarter & Revenue
+
+🔍 Key Insights:
+Total Environment dominated Q2 2024 with ₹68.2 Cr in revenue — highest quarterly contribution.
+Puravankara surged in Q3 2024 with ₹54.7 Cr — aggressive launches in Whitefield and Hebbal.
+Brigade declined in Q4 2024 — revenue dropped from ₹48 Cr to ₹32 Cr — possible lack of new projects.
+💡 Total Environment is consistent; Puravankara is rising; Brigade needs new launches. 
+
+📊 8. Possession Status Analysis
+Clustered Column: Possession Status vs. Booking Status by Buyer_Type
+
+🔍 Key Insights:
+NRIs book 78% of "Under Construction" homes — investment-driven (e.g., PROP053701, PROP034917)
+HNI/CXO buyers prefer "Ready To Move" (72% of bookings) — want immediate occupancy (e.g., PROP005045, PROP066652)
+"Launch" projects have 68% inquiry-to-booking ratio — strong early interest, especially from Startup Founders.
+💡 NRIs invest in future; HNIs want now. Developers should tailor messaging. 
+
+📊 9. Geographical Insights
+Map: Project Concentration in Bengaluru
+
+🔍 Key Insights:
+Whitefield has 28% of all luxury projects — highest density (e.g., PROP034916, PROP071376)
+Sarjapur Road and Hebbal follow with 22% and 18% respectively — emerging hubs
+Domlur and Yelahanka have low project count but high buyer comments — untapped potential
+💡 Whitefield is the epicenter; Sarjapur Road is the next big thing. 
+
+📊 10. Top Performers
+KPI Cards: Top 5 Builders by Revenue & Booking Success
+
+🔍 Key Insights:
+Total Environment is #1 builder with ₹1.89 Cr total revenue and 1,200+ bookings
+Prestige has highest avg price (₹14.9 Cr) and 68% conversion — premium leader
+Sobha has 70% conversion rate — best sales execution despite lower revenue
+💡 Total Environment = volume king; Prestige = premium leader; Sobha = sales efficiency. 
+
+📌 Final Summary: Top 3 Pain Points from Buyer Comments
+"Connectivity is poor" → 2,800+ mentions (e.g., PROP001061, PROP006588)
+"Too far from my office" → 940+ mentions (e.g., PROP009319)
+"Agent was not responsive" → 680+ mentions — a red flag for sales teams
+💡 Location and service matter as much as price and amenities. 
+
+
 
 ## 🔍 Sample Insights
 📍🇮🇳 Maharashtra and Karnataka are the most active transaction states
@@ -325,30 +404,6 @@ Scenario-wise Key Insights:
 
 ⛨️ Insurance adoption is still <30% in northern and north-eastern states
 
- ## 💡 Example Queries Used
-
-### 1. Top States by Total Transaction Amount
-```sql
-SELECT "State", SUM("Transaction_amount") AS Total_transaction_amount
-FROM agg_trans_table
-GROUP BY "State"
-ORDER BY Total_transaction_amount DESC;
-```
-
-### 2. Device Brands with Possible Decline
-```sql
-SELECT "Device_Brand", "Year", "Quarter", SUM("Device_Count") AS Total_Users
-FROM agg_user_table
-GROUP BY "Device_Brand", "Year", "Quarter"
-ORDER BY Total_Users DESC;
-```
-
-### 3. States with Low Insurance Adoption (Untapped Potential)
-```sql
-SELECT "State", SUM("Total_count") AS Total_Insurance_Count
-FROM agg_ins_table
-GROUP BY "State"
-ORDER BY Total_Insurance_Count ASC;
 ```
 ## 📚 Full project analytical report tab:
 
@@ -366,116 +421,257 @@ ORDER BY Total_Insurance_Count ASC;
 
 Digital payments adoption is uneven across India with disparities in user registrations, transaction volume, device usage, and insurance penetration.
 
-### 📊 Exploratory Data Analysis (EDA)
-🧑‍🤝‍🧑📱 Correlation Between Population Density and App Opens
-Analyzed how user density in various districts influences the number of app opens, highlighting the role of regional engagement and accessibility.
+## 🏡 Luxury Housing Sales Analysis – EDA Summary
+📊 1. Dataset Overview
 
-📈🗓️ Time-Series Analysis of Transaction Counts by State and Quarter
-Tracked transaction trends over time across all states and quarters to uncover seasonal patterns, usage peaks, and digital adoption growth.
+🗂️ Rows/Columns: ~15,000 × 19 features
 
-📱⚙️ Device Brand Analysis vs User Engagement
-Explored how different smartphone brands impact user interaction levels, revealing engagement gaps between premium and budget devices.
+🎯 Target: Booking_Flag (1=Booked ✅, 0=Not Booked ❌)
 
-🗺️🔥 Insurance Usage Heatmaps by District
-Visualized insurance activity intensity across districts to identify awareness and adoption gaps geographically, especially in low-performing regions.
+🔢 Features: Numerical (💰 Price, 📐 Sqft, 🏗️ Infra Score, 🚦 Traffic) + Categorical (📍 Location, 🏠 Configuration, 👤 Buyer Type, 🏢 Developer, 🏗️ Possession Status)
+
+🧹 2. Data Quality
+
+✅ Missing values <2% → filled with median/mode or “Unknown”
+
+🚫 Outliers in Price & Price_per_Sqft capped (99th percentile)
+
+🔁 Duplicates removed
+
+📈 3. Univariate Insights
+
+📊 Booking Rate: 43.1% overall
+
+🏠 Configuration: 3BHK (39.3%) > 2BHK (30.1%) > 4BHK+ (16.4%) > 1BHK (14.2%)
+
+💰 Price: Avg 3.24 Cr, mostly 2–4 Cr (52.6%)
+
+👥 Buyer Type: End-user (59.6%) > Investor (40.4%)
+
+🌍 NRI Buyers: 25.2%, avg price 4.12 Cr
+
+🏗️ Infrastructure Score: Avg 6.8/10, higher score = higher bookings 📈
+
+🚦 Traffic: Avg 28.5 min, lower = higher bookings
+
+🔗 4. Bivariate Insights
+
+🏠 Config vs Booking: 4BHK+ (52.3%) > 1BHK (35.2%)
+
+👥 Buyer Type: End-user 45.6% > Investor 39.8%
+
+🌍 NRI vs Domestic: NRI higher booking (46.2%) & price
+
+🏗️ Possession: Ready-to-move (47.8%) > Under-construction (38.9%)
+
+🏗️+🚦 Infra + Traffic: High Infra + Low Traffic = 62.4% bookings
+
+🧩 5. Multivariate Insights
+
+⭐ Top Segment: NRI End-user + 4BHK+ + High Infra + Ready → 67.8% booking
+
+🏢 Developers: Prestige & Brigade outperform consistently
+
+💰 Price/Sqft: Smaller units > higher psf premium
+
+📍 Micro-markets: Indiranagar, Koramangala, Whitefield lead in bookings
+
+⏳ 6. Time Series Insights
+
+📈 Bookings rising 2020 (41.2%) → 2024 (51.2%)
+
+🗓️ Seasonal: Q4 peak, Q2 lowest
+
+🌍 NRI buyers show Q4 seasonality
+
+💡 7. Business Insights
+
+⭐ High Performing: NRI + Premium Configurations + Ready-to-Move
+
+⚠️ Underperforming: Domestic Investors, 1BHK, Low Infra, UC projects
+
+💰 Revenue Drivers: NRI End-users = ~30% revenue
+
+🚀 Opportunities: Q2 activation, investor-focused products, new micro-markets
+
+✅ 8. Recommendations
+
+👤 Buyer Focus: Target NRI + End-users, ready-to-move & premium units
+
+🏠 Config Strategy: Grow 3BHK/4BHK+, price 2BHK competitively
+
+📍 Location: Prioritize High-Infra (>7) + Low Traffic (<25 min) zones
+
+🏢 Developers: Leverage top brands (Prestige, Brigade)
+
+🗂️ Portfolio Mix: 3BHK (35–40%) | 2BHK (25–30%) | 4BHK+ (20–25%) | 1BHK (10–15%)
+
+📆 Timing: Align launches with Q4 peak
+
+🎯 Key Takeaway
+
+Luxury housing bookings depend on:
+👤 Buyer Type | 🏠 Configuration | 🏗️ Project Status | 📍 Location Infra | 🚦 Traffic
+
+👉 Optimizing these drives higher bookings, better pricing & revenue 🚀
+
+## ❗ Key Problems Identified
+
+🏚️📉 Low Conversion in Under-Construction Projects
+📌 Issue: Buyers hesitate to book under-construction projects.
+📡 Cause: Possession risk, trust issues with developers, and project delays.
+
+💰⚖️ High Price Sensitivity in Luxury Housing
+📌 Issue: Premium projects show lower booking rates than mid-segment.
+📡 Cause: Affordability gap, preference for value-for-money homes.
+
+📍🏞️ Location-Based Demand Disparities
+📌 Issue: Certain micro-markets show high supply but weak demand.
+📡 Cause: Poor infrastructure, lack of connectivity, or oversupply.
+
+🛠️❌ Mismatch Between Amenities and Buyer Priorities
+📌 Issue: Projects with high amenity scores don’t always attract bookings.
+📡 Cause: Amenities offered don’t align with buyer expectations (e.g., prefer affordability over luxury add-ons).
+
+👥🔀 Investor vs. End-User Demand Gap
+📌 Issue: Different expectations affect booking trends.
+📡 Cause: Investors focus on ROI, while end-users focus on timely possession and affordability.
+
+📊⏳ Seasonal Sales Fluctuations
+📌 Issue: Bookings peak during festive/financial year-end but remain low otherwise.
+📡 Cause: Seasonal buying behavior, discounts, and cultural factors.
 ``
-### ❗ Key Problems Identified
-📉🏞️ Low User Registrations in Rural Pin Codes
+## 💡 Proposed Solutions
 
-📌 Issue: Poor digital access, awareness, and onboarding in rural regions.
+🏙️ Target Affordable & Mid-Premium Segments
+✔️ Alongside luxury housing, launch mid-premium and “affordable luxury” units.
+✔️ Attracts aspirational middle-income buyers and ensures steady absorption rates.
+✔️ Balances exclusivity with wider market reach.
 
-📡 Cause: Limited internet access, low smartphone usage, and digital illiteracy.
+📢 Strengthen Marketing & Awareness Strategy
+✔️ Mix digital campaigns, property portals, and targeted ads for NRI + domestic buyers.
+✔️ Use VR/AR virtual tours and 360° walkthroughs for immersive buyer experience.
+✔️ Collaborate with real estate influencers, YouTubers, and property fairs.
 
-🧠❌ Insurance Awareness Lacking in Northern Regions
+🛣️ Boost Location Value & Accessibility
+✔️ Work with civic authorities to improve last-mile connectivity.
+✔️ Highlight proximity to IT hubs, schools, healthcare, and malls in sales pitches.
+✔️ Develop projects in emerging micro-markets for early advantage.
 
-🗺️ Issue: Minimal digital insurance transactions in northern states.
+💰 Flexible Financing & Buyer-Friendly Schemes
+✔️ Tie up with banks for attractive EMI and low-interest home loan packages.
+✔️ Offer staggered payment plans, festive discounts, and referral bonuses.
+✔️ Introduce rent-to-own or part-ownership models for young buyers.
 
-🧾 Cause: Lack of awareness, trust, and financial literacy regarding digital insurance.
+🏗️ Sustainable & Smart Housing Features
+✔️ Incorporate solar panels, rainwater harvesting, and green building materials.
+✔️ Offer IoT-enabled smart homes (remote security, energy-efficient appliances).
+✔️ Aligns with eco-conscious buyers and long-term cost savings.
 
-📱⚖️ Disparity in Engagement Based on Device Brand
+🤝 Enhance Buyer Trust & Transparency
+✔️ Maintain RERA compliance and provide timely project updates.
+✔️ Share construction progress videos/photos for transparency.
+✔️ Offer escrow-linked payment models to boost buyer confidence.
 
-📊 Issue: Uneven engagement patterns across phone brands.
+🧑‍🤝‍🧑 Community-Centric Amenities
+✔️ Focus on co-working spaces, daycare centers, fitness hubs, and wellness zones.
+✔️ Create gated communities with sports, culture, and social engagement facilities.
+✔️ Appeals to families and long-term residents, not just investors.
 
-📉 Cause: Budget phones struggle with app performance and feature access.
-
-🌐⚠️💥 Uneven Infrastructure Distribution Causing Transaction Overload
-
-🖥️ Issue: High transaction volumes causing server slowdowns and failures.
-
-📍 Cause: Infrastructure concentrated in metro areas; rural clusters under-supported.
+📊 Data-Driven Market Intelligence
+✔️ Track buyer demographics, conversion ratios, and amenity preferences.
+✔️ Use predictive analytics to design customized offers for different buyer clusters.
+✔️ Benchmark performance against competitors to stay ahead.
 ``
-### 💡 Proposed Solutions
-🧾🏕️ Rural Outreach Through Incentives
+## 🏡✨ Features of the Housing Project
 
-🎁 Solution: Offer region-specific bonuses, referrals, and scratch card rewards.
+🔑 Comprehensive Sales Analysis
+Analyzes property sales across multiple dimensions such as location, possession status, amenities, and buyer profiles.
 
-🗣️ Tactic: Community outreach via local influencers and multilingual support.
+📊 Interactive Visualizations
+Charts, slicers, and filters in Power BI for dynamic insights into housing trends.
 
-🗺️📣 Localized Awareness Campaigns for Insurance
+🏢 Possession Status Insights
+Tracks the impact of under-construction vs. ready-to-move properties on booking decisions.
 
-📢 Solution: Run insurance awareness programs via vernacular media and street campaigns.
+🛠️ Amenity Impact Evaluation
+Measures how amenities like gym, pool, parking, etc. influence booking conversion rates.
 
-📺 Tactic: Use short videos, banners, and local events to build understanding and trust.
+👥 Buyer Segmentation
+Identifies preferences of different buyer types (end-users vs. investors).
 
-⚙️📱 App Optimization for Low-Performance Brands
+🌍 Location-Based Trends
+Compares micro-markets, cities, and regions to highlight high-demand zones.
 
-📦 Solution: Create a lightweight version of the app for low-end phones.
+📈 Price & Size Analysis
+Correlates ticket size, unit area, and price per sqft with booking success.
 
-🔧 Tactic: Reduce app size, improve battery usage, and test on budget devices.
+🕒 Time-Based Performance
+Evaluates booking patterns by quarter/year to identify seasonal demand spikes.
 
-🧭🔌 Infrastructure Scaling in High-Load Districts
+📌 Market Competitiveness
+Benchmarks project performance against competitors to identify positioning gaps.
 
-🚀 Solution: Upgrade cloud/server capacity and introduce load balancing.
-
-🧠 Tactic: Predict traffic spikes using ML models and dynamically scale infrastructure.
+💡 Decision Support
+Provides actionable insights for developers, investors, and buyers for better housing decisions.
 ``
-## ✨ Features
+## 📌 Key Takeaways
 
-🌐 Interactive 2D Choropleth Map using PyDeck
+🏙️📍 Bangalore, Mumbai & Delhi NCR Lead in Luxury Housing Demand
+These metro cities dominate both sales volume and ticket price, making them prime hubs for premium real estate development.
 
-📊 Plotly visualizations (Bar, Pie, Line)
+💰📈 Amenities Strongly Influence Booking Decisions
+Projects with higher amenity scores (swimming pools, gyms, clubhouses) show significantly higher booking conversion rates.
 
-🔍 Filters by State, Year, Quarter
+📅🏡 Possession Status Impacts Buyer Behavior
+Ready-to-move-in projects attract end-users, while under-construction properties see higher investor interest.
 
-🔹 Drill-down to districts and pincode-level insights
+👥📊 Buyer Type Segmentation Highlights Distinct Patterns
+NRIs prefer premium projects in metro cities, while local buyers focus more on affordability and possession timelines.
 
-👥 Device brand usage and engagement breakdown
+📐💡 Unit Size Drives Price Per Sq. Ft. Variations
+Smaller units tend to command higher per sq. ft. prices, while larger luxury villas offer better overall value.
 
-🛡️ Insurance penetration analytics
-``
-## 📌 Key Takeaways 
-🏆📍 Maharashtra, Karnataka & Tamil Nadu Dominate Transactions
-These states consistently lead in total transaction volume and value, marking them as strongholds of digital financial adoption.
+📍🚉 Proximity to Metro & IT Hubs Boosts Bookings
+Housing projects closer to IT corridors, airports, and metro lines have higher demand and quicker sales cycles.
 
-📱💸 Some Districts Show High App Opens but Low Transaction Value
-Frequent usage doesn’t always translate to high-value transactions. These regions present strong marketing and product education opportunities.
+🌳🏗️ Green & Sustainable Projects Show Rising Interest
+Eco-friendly housing with green certifications (LEED, IGBC) is increasingly appealing to urban buyers.
 
-📲⚙️ Device Brand Usage Impacts Engagement
-Brand-based differences in app performance show that device optimization (especially for low-end models) is crucial to retain users.
+📊📆 Quarterly Trends Show Seasonal Spikes in Sales
+Festive seasons (Q3–Q4) consistently drive higher bookings, making them crucial for targeted marketing campaigns.
 
-👥📈 App Opens per Registered User Is a Key Engagement Indicator
-A higher ratio indicates better app stickiness and user satisfaction. This metric is essential for tracking user lifecycle quality.
+📌🔍 Micro-Market Analysis Reveals Hidden Growth Pockets
+Emerging suburban areas show faster appreciation rates than saturated metro zones, signaling new investment opportunities.
 
-🧠📉 Northern States Show Low Insurance Adoption
-Insurance transaction heatmaps reveal that northern states have lower usage, calling for targeted awareness campaigns in these regions.
-
-🌐🔌 Infrastructure Bottlenecks in High-Load Urban Clusters
-Peak usage districts show signs of transaction overload, pointing to the need for scalable backend systems and network optimization.
-
-🗓️📊 Quarterly Trends Reveal Seasonal Spikes
-Time-series analysis shows that certain quarters (e.g., Q4 during festive seasons) consistently bring usage surges — useful for campaign planning.
-
-📍🧾 Rural PIN Codes Are Underrepresented in New Registrations
-Despite high population density in some rural districts, registration rates are low, hinting at digital access or literacy barriers.
-
-🔍💡 District-Level Heatmaps Uncover Hidden High-Performers
-Some smaller districts outperform metro areas in engagement per capita — suggesting these could be future growth hubs.
+🏢📉 Unsold Inventory Remains a Challenge in Certain Segments
+Ultra-luxury apartments above ₹5 Cr face slower absorption, requiring innovative pricing and marketing strategies.
 ``
 ## 🛠️ Tech Stack
-- **Frontend**: Streamlit(Dashboard creation and interactivity,),plotly(Data Visualization),pydeck(Map Creation),HTML(Icon And Font Styling) 
-- **Backend**: Python(Data processing),Pandas(Data wrangling),SQLAlchemy(SQL querying via sqlalchemy)
-- **Database**: PostgreSQL(Data querying and aggregation)
-- **IDE**: Visual Studio Code(development environment)
+
+**Frontend / Visualization**:
+
+Power BI → Interactive dashboards, slicers & rich visualizations
+
+Excel → Data preprocessing, pivot tables & quick checks
+
+**Backend / Processing**:
+
+Python → Data cleaning, preprocessing & analysis
+
+Pandas / NumPy → Data wrangling & numerical computations
+
+Matplotlib / Seaborn → Exploratory data analysis & charts
+
+**Database / Storage**:
+
+CSV / Excel Files → Raw housing data storage
+
+**Development Environment**:
+
+Visual Studio Code (VS Code) → Development & coding
+
+Jupyter Notebook → Analysis, EDA & reporting
 
 ## 🔮 Future Enhancements
 🗺️ Add real-time interactive geographic map plots.  
@@ -489,28 +685,32 @@ Some smaller districts outperform metro areas in engagement per capita — sugge
 🧾 Auto-generate PDF/Excel reports for business teams.  
 
 ## 🙏 Acknowledgments
-📡 PhonePe Pulse – for open access data.  
 
-🧮 PostgreSQL – for efficient relational storage and querying.  
+📂 Dataset Providers – for making real estate data accessible for research and analysis.
 
-📊 Streamlit – for elegant and interactive dashboards.  
+🧮 PostgreSQL – for efficient relational storage and SQL querying.
 
-🐍 Python & Pandas – for powerful data processing.
+📊 Power BI – for insightful and interactive business dashboards.
 
-🧑‍🏫 GUVI Data Science Program Mentors 
-(Especially My Mentors Mr.Santhosh Nagaraj sir,Ms.Shadiya mam ,For their guidance throughout this project and providing me the confidence to make this project)
+🐍 Python, Pandas & Matplotlib – for robust data cleaning, processing, and visualization.
+
+🧑‍🏫 GUVI Data Science Program Mentors (Especially my mentors Mr. Santhosh Nagaraj sir and Ms. Shadiya mam) – for their constant guidance, support, and encouragement in completing this project successfully and building my confidence throughout the learning journey.
+
+👨‍👩‍👧‍👦 My Family & Friends – for their unwavering encouragement, motivation, and support that kept me focused and inspired during this project.
 
 ## ✅ Conclusion
-This project bridges the gap between raw JSON data and strategic insights through structured SQL queries, engaging dashboards, and effective storytelling. It allows businesses, analysts, and policymakers to explore the digital economy across India and identify impactful opportunities for growth, engagement, and financial inclusion.
+
+The Luxury Housing Sales Analysis Project transformed raw data into valuable insights on buyer behavior, pricing trends, amenities, and possession status. Using Python, SQL, and Power BI, the project highlighted how amenities and timely possession play a major role in driving booking decisions.
+Overall, this project shows the power of data-driven decision-making in real estate and provides stakeholders with actionable insights to improve sales strategies, buyer engagement, and future planning.
 
 ## 🙏 Thank You!
-✨ "Data is a precious thing and will last longer than the systems themselves."
-— Tim Berners-Lee, Inventor of the World Wide Web
 
-🚀 Your time exploring the PhonePe Transaction Insight Dashboard is deeply appreciated!
-📊 Whether you came for data, design, or direction — we hope you found insight and inspiration.
+✨ "Housing is not just about buildings; it is about dreams, lifestyles, and aspirations."
 
-💡 Keep decoding, keep questioning, and let data guide the way.
+🚀 Thank you for exploring the Luxury Housing Sales Analysis Project.
+📊 Whether your interest was in data, insights, or decisions, we hope this project offered both clarity and inspiration.
+
+💡 Keep analyzing, keep innovating, and let data shape better choices.
 
 ## 👩‍💻 Author
 Malathi Y
